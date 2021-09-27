@@ -23,7 +23,7 @@ export class UserDetailsComponent implements OnInit {
     private _rute: ActivatedRoute
 
     ) {
-    this.user=new User(1, "", "", "", "", "")
+    this.user= new User(1, "", "", "", "", "")
     this.status = "";
     this.identity = this._userServices.getIdentity();
     this.token = this._userServices.getToken();
@@ -31,6 +31,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    
   }
   getUser(){
     this._userServices.getUser(this.identity.sub, this.token).subscribe(

@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
             this.token = Response;
             this._userServices.signup(this.user, true).subscribe(
               Response=>{
+                
                 this.identity= Response;
                 localStorage.setItem('token', this.token);
                 localStorage.setItem('identity', JSON.stringify(this.identity));
@@ -49,16 +50,19 @@ export class LoginComponent implements OnInit {
                   this._router.navigate(['inicio']);
 
                 }, 1000)
-                
-            
+                form.reset()
               },
               error =>{
                 console.log(<any>error);
               }
             )
         }else{
+          Swal.fire(
+            'Error!',
+            'Usuario o contraseña incorrecta!',
+            'error'
+          )
         }
-        form.reset()
       },
       error =>{
         console.log(<any>error);

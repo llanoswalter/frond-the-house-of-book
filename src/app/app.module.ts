@@ -17,7 +17,6 @@ import { HttpClient } from '@angular/common/http';
 import { ResetPasswordComponent } from './componets/reset-password/reset-password.component';
 import { ResetPasswordFormComponent } from './componets/reset-password-form/reset-password-form.component';
 import { UserDetailsComponent } from './componets/user-details/user-details.component';
-import { ContacComponent } from './components/contac/contac.component';
 import { SearchBookComponent } from './componets/book/search-book/search-book.component';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -37,7 +36,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ResetPasswordComponent,
     ResetPasswordFormComponent,
     UserDetailsComponent,
-    ContacComponent,
     SearchBookComponent,
   ],
   imports: [

@@ -52,23 +52,14 @@
                 >
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Introduce tu correo</label>
+                <label for="exampleInputEmail1">Tu correo es:</label>
                 <input
                   type="email"
                   name="email"
                   class="form-control"
                   placeholder="email"
-                  #email="ngModel"
-                  [(ngModel)]="user.email"
-                  required
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   disabled
                 />
-                <span
-                  *ngIf="!email.valid && email.touched"
-                  class="invalid-feedback d-block"
-                  >El email no es valido</span
-                >
               </div>
               <div class="col-md-12 text-center">
                 <button

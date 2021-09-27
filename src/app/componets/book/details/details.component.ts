@@ -28,33 +28,44 @@ export class DetailsComponent implements OnInit {
     this._BookServices.oneBook(libro).subscribe(
       Response=>{
           this.book= Response;
-          let idAuthor= this.book.authors[0].key
-          let idWork= this.book.works[0].key
-          this._BookServices.author(idAuthor).subscribe(
-            Response=>{
-              
-              this.autores= Response.name;
-              setTimeout(() => {
-                this._spiner.hide();
-              }, 1);
-            },
-            error=>{
-              console.log(<any>error);
-              
-            }
-          );
-          this._BookServices.detailBook(idWork).subscribe(
-            Response=>{
-              this.description= Response.description != undefined ? Response.description: [`Por el momento no disponemos de descripción para este libro`] ;
-              this.people = Response.subject_people != undefined ? Response.subject_people : [`Por el momento no disponemos de personajes para mostrar`] ;
-              this.typeOfBook = Response.subjects != undefined ? Response.subjects : [`Por el momento no disponemos de temas para mostrar`] ;
-              
-            },
-            error=>{
-              console.log(<any>error);
-              
-            }
-          )
+          
+          let idAuthor= this.book.authors != undefined ? this.book.authors[0].key: null;
+          let idWork= this.book.works != undefined ? this.book.works[0].key : null;
+          if(idAuthor != null){
+            this._BookServices.author(idAuthor).subscribe(
+              Response=>{
+                this.autores= Response.name;
+
+              },
+              error=>{
+                console.log(<any>error);
+                
+              }
+            );
+          }
+          if(idWork != null){
+
+            this._BookServices.detailBook(idWork).subscribe(
+              Response=>{
+                this.description= Response.description != undefined ? Response.description: [`Por el momento no disponemos de descripción para este libro`] ;
+                this.people = Response.subject_people != undefined ? Response.subject_people : [`Por el momento no disponemos de personajes para mostrar`] ;
+                this.typeOfBook = Response.subjects != undefined ? Response.subjects : [`Por el momento no disponemos de temas para mostrar`] ;
+                
+              },
+              error=>{
+                console.log(<any>error);
+                
+              }
+            )
+          }else{
+            this.description= [`Por el momento no disponemos de descripción para este libro`] ;
+            this.people =  [`Por el momento no disponemos de personajes para mostrar`] ;
+            this.typeOfBook =  [`Por el momento no disponemos de temas para mostrar`] ;
+
+          }
+          setTimeout(() => {
+            this._spiner.hide();
+          }, 1000);
       },
       error=>{
         console.log(<any>error);

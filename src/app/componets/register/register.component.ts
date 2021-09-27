@@ -52,8 +52,12 @@ export class RegisterComponent implements OnInit {
         form.reset()
       },
       error =>{
-        if(error.error.error.email != null){
+        console.log(error);
+        
+        if(error.error.error != undefined && error.error.error.email != null){
           error = "El usuario ya esta registrado en nuestra base de datos!"
+        }else{
+          error = "Se produjo un error por favor volver a intentar mas tarde"
         }
         this.status = 'error'
         Swal.fire({
