@@ -1,10 +1,13 @@
 a {
   text-decoration: none !important;
 }
+input {
+  margin-bottom: 2vh !important;
+}
 h1,
 h2,
 h3 {
-  font-family: "Kaushan Script", cursive;
+  font-family: "Playfair Display", serif;
 }
 .myform {
   position: relative;
