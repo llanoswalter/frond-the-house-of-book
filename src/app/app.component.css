@@ -1,0 +1,31 @@
+.ll-background {
+  background: linear-gradient(to bottom, #36276c, #36276c, #fcccfc) !important;
+}
+.ll-bg-main {
+  background-color: #36276c !important;
+}
+.ll-bg-secundary {
+  background-color: #fcccfc !important;
+}
+.ll-color-main {
+  color: #fcccfc !important;
+}
+.ll-color-secundary {
+  color: #36276c !important;
+}
+@media only screen and (min-width: 780px) {
+  .ll-width-50 {
+    width: 50vw !important;
+  }
+}
+.ll-icon-social {
+  max-height: 6vh !important;
+}
+.ll-altura-50 {
+  min-height: 80vh !important;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 10vh;
+}

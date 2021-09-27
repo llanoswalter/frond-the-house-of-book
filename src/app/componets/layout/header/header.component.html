@@ -1,0 +1,89 @@
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top navbar navbar-light ll-bg-main">
+    <div class="container-fluid">
+      <a class="navbar-brand ll-color-main" [routerLink]="['/inicio']"
+        >the house of book</a
+      >
+      <button
+        class="navbar-toggler ll-color-main"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa fa-bars ll-color-main"></i>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-md-between ps-md-5"
+        id="navbarSupportedContent"
+      >
+        <form
+          class="d-flex"
+          #searchFont="ngForm"
+          (ngSubmit)="onSubmit(searchFont)"
+          *ngIf="identity && identity.name"
+        >
+          <input
+            class="form-control me-2 ll-bg-secundary ll-width-50"
+            type="search"
+            placeholder="Buscar"
+            aria-label="Buscar"
+            name="text"
+            #text="ngModel"
+            [(ngModel)]="search.text"
+          />
+          <button class="btn" type="submit">
+            <i class="fas fa-search ll-color-main"></i>
+          </button>
+        </form>
+
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item me-md-3" *ngIf="!identity">
+            <button type="button" class="btn">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                [routerLink]="['/registro']"
+              >
+                <span class="ll-color-main ms-3">Registro</span>
+              </a>
+            </button>
+          </li>
+          <li class="nav-item me-md-3" *ngIf="!identity">
+            <button type="button" class="btn">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                [routerLink]="['/login']"
+              >
+                <span class="ll-color-main ms-3">Login</span>
+              </a>
+            </button>
+          </li>
+          <li class="nav-item me-md-3" *ngIf="identity && identity.name">
+            <button type="button" class="btn">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                [routerLink]="['/usuario']"
+              >
+                <i class="far fa-user ll-color-main"></i>
+                <span class="ll-color-main ms-3 d-lg-none">Usuario</span>
+              </a>
+            </button>
+          </li>
+          <li class="nav-item" *ngIf="identity && identity.name">
+            <button type="button" class="btn">
+              <a class="nav-link" [routerLink]="['/logout/1']">
+                <i class="fas fa-sign-out-alt ll-color-main"></i>
+                <span class="ll-color-main ms-3 d-lg-none">Salir</span>
+              </a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

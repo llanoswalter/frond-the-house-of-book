@@ -1,0 +1,97 @@
+<main class="ll-background">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div
+        class="
+          col-md-5
+          mx-auto
+          align-items-center
+          justify-content-center
+          d-flex
+        "
+      >
+        <div class="myform form">
+          <div class="logo mb-3"></div>
+          <div id="first">
+            <div class="col-md-12 text-center ll-color-secundary mb-5">
+              <h1>Contactanos</h1>
+            </div>
+            <form #registeForm="ngForm" (ngSubmit)="onSubmit(registeForm)">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Introduce tu nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="nombre"
+                  #name="ngModel"
+                  [(ngModel)]="contacto.name"
+                  required
+                />
+                <span
+                  *ngIf="!name.valid && name.touched"
+                  class="invalid-feedback d-block"
+                  >El nombre no es valido</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Introduce tu correo</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="email"
+                  #email="ngModel"
+                  [(ngModel)]="contacto.email"
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                />
+                <span
+                  *ngIf="!email.valid && email.touched"
+                  class="invalid-feedback d-block"
+                  >El email no es valido</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1"
+                  >Introduce el mensaje deseado</label
+                >
+                <input
+                  type="text"
+                  name="message"
+                  class="form-control"
+                  placeholder="mensaje"
+                  #message="ngModel"
+                  [(ngModel)]="contacto.message"
+                  required
+                />
+                <span
+                  *ngIf="!message.valid && message.touched"
+                  class="invalid-feedback d-block"
+                  >El email no es valido</span
+                >
+              </div>
+              <div class="col-md-12 text-center">
+                <button
+                  type="submit"
+                  class="
+                    btn btn-block
+                    mybtn
+                    btn-primary
+                    tx-tfm
+                    ll-bg-main ll-color-main
+                    border-0
+                    mt-3
+                  "
+                  [disabled]="registeForm.invalid"
+                >
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

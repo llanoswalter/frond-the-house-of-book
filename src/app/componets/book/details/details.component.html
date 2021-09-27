@@ -1,0 +1,33 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 1)"
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
+>
+</ngx-spinner>
+<div class="ll-altura-80 d-block">
+  <div class="container h-100 mt-5 pt-5">
+    <div class="card w-75">
+      <h2 class="card-header text-center">{{ book.title }}</h2>
+      <div *ngIf="book.isbn_10 != undefined" class="mb-3 text-center">
+        <img
+          src="http://covers.openlibrary.org/b/isbn/{{ book.isbn_13 }}-L.jpg"
+          class="card-img-top ll-img-50"
+          alt="portada de {{ book.title }}"
+        />
+      </div>
+      <div class="card-body">
+        <p class="card-text">Fue publicado: {{ book.publish_date }}</p>
+        <p class="card-text">Autor: {{ autores }}</p>
+        <h3 class="card-text">Personajes:</h3>
+        <div class="d-flex flex-wrap">
+          <p *ngFor="let person of people">{{ person }}</p>
+        </div>
+        <h3 class="card-text">Descripcion:</h3>
+        <p class="card-text">{{ description }}</p>
+        <h3 class="card-text">Temas::</h3>
+        <div class="d-flex flex-wrap">
+          <p *ngFor="let type of typeOfBook" class="mb-0">{{ type }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

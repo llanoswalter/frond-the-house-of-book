@@ -1,0 +1,132 @@
+<footer *ngIf="identity && identity.name">
+  <div class="d-flex justify-content-md-around ll-bg-main ll-color-main pt-3">
+    <div>
+      <h5>Autores</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a
+            (click)="getAuthor('Stephenie+Meyer')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Stephenie Meyer</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="getAuthor('Maria+Elena+Walsh')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Maria Elena Walsh
+          </a>
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="getAuthor('Jorge+Luis+Borges')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Jorge Luis Borges</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="getAuthor('William+Shakespeare')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >William Shakespeare</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>libros</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a
+            (click)="
+              getBook(
+                '8445074814',
+                'El Señor De Los Anillos: El Retorno Del Rey'
+              )
+            "
+            class="ll-color-main nav-link p-0 text-muted"
+            >El Señor De Los Anillos: El Retorno Del Rey</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="
+              getBook('8478885196', 'Harry Potter y el prisionero de Azkaban')
+            "
+            class="ll-color-main nav-link p-0 text-muted"
+            >Harry Potter y el prisionero de Azkaban</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="getBook('201014158X', 'Le Crime de l Orient-Express')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Le Crime de l Orient-Express</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            (click)="getBook('1905654642', 'New Moon
+              ')"
+            class="ll-color-main nav-link p-0 text-muted"
+            >New Moon
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a
+            [routerLink]="['/inicio']"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Inicio</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a
+            [routerLink]="['/contacto']"
+            class="ll-color-main nav-link p-0 text-muted"
+            >Contacto</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <span>Nuestra redes:</span>
+        </li>
+        <li class="nav-item mb-2">
+          <div class="d-flex justify-content-md-between">
+            <a href="https://www.facebook.com/walter.llanos.50" target="_black">
+              <img
+                src="../../../../assets/img/facebook.png"
+                alt="facebook"
+                class="ll-icon-social me-2"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/llanoswalter2603"
+              target="_blanck"
+            >
+              <img
+                src="../../../../assets/img/instagram.png"
+                alt="facebook"
+                class="ll-icon-social me-2"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/walter-llanos-3a637718b"
+              target="_blanck"
+            >
+              <img
+                src="../../../../assets/img/linkedin.png"
+                alt="facebook"
+                class="ll-icon-social"
+              />
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
