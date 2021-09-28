@@ -1,3 +1,3 @@
 export const globalServices = {
-    url : 'http://localhost/the-house-of-book/api-page/public/api/'
+    url : 'https://the-house-of-book.herokuapp.com/api/'
 }

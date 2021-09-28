@@ -66,6 +66,11 @@ export class LoginComponent implements OnInit {
       },
       error =>{
         console.log(<any>error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Se produjo un error',
+          text: 'Se profujo un error interno por favor volver a intentar mas tarde',
+        })
       }
     )
   }

@@ -1,5 +1,7 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { identityGuard } from "./services/identity.guard";
+import { NoidentityGuard } from "./services/notidentity.guard";
 
 import { LoginComponent } from "./componets/login/login.component";
 import { RegisterComponent } from './componets/register/register.component';
@@ -13,17 +15,17 @@ import { DetailsComponent } from "./componets/book/details/details.component";
 import { ErrorComponent } from './componets/error/error.component';
 
 const appRoutes : Routes = [
-    {path: '', component: LoginComponent },
-    {path: 'inicio', component: HomeComponent },
-    {path: 'login', component: LoginComponent },
-    {path: 'logout/:sure', component: LoginComponent },
-    {path: 'usuario', component: UserDetailsComponent },
-    {path: 'contacto', component: ContactFormComponent },
-    {path : 'buscar', component: SearchBookComponent},
-    {path: 'libro/:title', component: DetailsComponent},
-    {path: 'resetear-password', component: ResetPasswordComponent },
-    {path: 'formulario-resetear-password', component: ResetPasswordFormComponent },
-    {path: 'registro', component: RegisterComponent },
+    {path: '', component: LoginComponent, canActivate :[NoidentityGuard] },
+    {path: 'inicio', component: HomeComponent, canActivate :[identityGuard] },
+    {path: 'login', component: LoginComponent, canActivate :[NoidentityGuard] },
+    {path: 'logout/:sure', component: LoginComponent, canActivate :[identityGuard] },
+    {path: 'usuario', component: UserDetailsComponent, canActivate :[identityGuard] },
+    {path: 'contacto', component: ContactFormComponent, canActivate :[identityGuard] },
+    {path : 'buscar', component: SearchBookComponent, canActivate :[identityGuard]},
+    {path: 'libro/:title', component: DetailsComponent, canActivate :[identityGuard]},
+    {path: 'resetear-password', component: ResetPasswordComponent, canActivate :[NoidentityGuard] },
+    {path: 'formulario-resetear-password', component: ResetPasswordFormComponent, canActivate :[NoidentityGuard] },
+    {path: 'registro', component: RegisterComponent, canActivate :[NoidentityGuard] },
     {path: '**', component: ErrorComponent}
 ]
 export const appRoutingProviders: any[]= [];
