@@ -21,7 +21,7 @@ import { SearchBookComponent } from './componets/book/search-book/search-book.co
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { identityGuard } from "./services/identity.guard";
+import { identityGuard } from "./services/Identity.guard";
 import { UserServices } from './services/userServices';
 import { NoidentityGuard } from "./services/notidentity.guard";
 
